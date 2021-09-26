@@ -11,7 +11,9 @@ import SwiftUI
 struct MotivationalQuotesAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let model = QuoteModel()
+            QuoteListView( quoteModel: model.qoutes[0])
+                .environmentObject(QuoteModel())
         }
     }
 }

@@ -1,0 +1,35 @@
+[
+{
+    "name":"Charles Swindoll",
+    "quotes":["We are all faced with a series of great opportunities brilliantly disguised as impossible situations.",
+        "Each day of our lives we make deposits in the memory banks of our children.",
+        "The remarkable thing is, we have a choice everyday regarding the attitude we will embrace for that day.",
+    "When you have vision it affects your attitude. Your attitude is optimistic rather than pessimistic."],
+    "image":"ambition"
+},
+{
+    "name":"Charles darwin",
+    "quotes":["In three words I can sum up everything I've learned about life: it goes on.",
+        "Each day of our lives we make deposits in the memory banks of our children.",
+        "The remarkable thing is, we have a choice everyday regarding the attitude we will embrace for that day.",
+    "When you have vision it affects your attitude. Your attitude is optimistic rather than pessimistic."],
+    "image":"calm"
+},
+{
+    "name":"Charles lucy",
+    "quotes":["You only live once, but if you do it right, once is enough.",
+        "Each day of our lives we make deposits in the memory banks of our children.",
+        "The remarkable thing is, we have a choice everyday regarding the attitude we will embrace for that day.",
+    "When you have vision it affects your attitude. Your attitude is optimistic rather than pessimistic."],
+    "image":"focus"
+},
+{
+    "name":"Charles Emir",
+    "quotes":["Be thankful for what you have; you'll end up having more. If you concentrate on what you don't have, you will never, ever have enough.",
+        "Each day of our lives we make deposits in the memory banks of our children.",
+        "The remarkable thing is, we have a choice everyday regarding the attitude we will embrace for that day.",
+    "When you have vision it affects your attitude. Your attitude is optimistic rather than pessimistic."],
+    "image":"reflect"
+}
+
+]
