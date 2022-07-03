@@ -2,72 +2,60 @@
 //  ContentView.swift
 //  MotivationalQuotesApp
 //
-//  Created by mac on 9/25/21.
+//  Created by Tony-eniola on 9/25/21.
 //
 
 import SwiftUI
 
 struct QuoteListView: View {
-    @EnvironmentObject var model: QuoteModel
-    var quoteModel: Quote
+    var model = QuoteModel()
     var body: some View {
         
-       
-        
         NavigationView {
-            VStack {
-                Text("Quotes")
-                        .bold()
-                        .padding(.top, 40)
-                        .font(Font.custom("Avenir Heavy", size: 24))
-                    
-                    ScrollView {
-                        
-                        LazyVStack {
-                          
-                            ForEach(model.qoutes){ q in
-                                
-                                NavigationLink(
-                                    destination: QuoteDetailView(quote: q),
-                                    label: {
-                                        ZStack {
-                                            Image(q.image)
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fill)
-                                                .cornerRadius(15)
-                                            
-                                            VStack(alignment: .leading, spacing: 10.0) {
-                                              
-                                                    QuoteCard(quotecard: q)
-                                            }
-                                            .padding([.top, .leading], 20.0)
-                                            .shadow(color: .black, radius: 10, x: 2, y: 2)
-                                            
-                                        }
-                                        .foregroundColor(Color.white)
-                                        .frame(width: .none, height: 400, alignment: .center)
-                                        .clipped()
-                                        .cornerRadius(15)
-                                        .padding([.leading, .trailing])
-                                    })
-                                
+            VStack(alignment: .center) {
+                
+                ScrollView {
+                    LazyVStack {
+                        ForEach(model.qoutes) { model in
+                            NavigationLink {
+                                QuoteDetailView(model: model)
+                            } label: {
+                                ZStack {
+                                    Image(model.image)
+                                        .resizable()
+                                        .scaledToFill()
+                                    VStack {                                    Text(model.quotes[0])
+                                            .font(.title3)
+                                            .foregroundColor(.white)
+                                            .multilineTextAlignment(.center)
+                                            .padding([.horizontal], 8.0)
+                                            .padding(.bottom, 2.0)
+                                        
+                                        Text(model.name)
+                                            .foregroundColor(.white)
+                                            .font(Font.custom("Avenir Heavy", size: 20))
+                                            .fontWeight(.bold)
+                                    }
+                                }
+                                .frame(width: .none, height: 400, alignment: .center)
+                                .clipped()
+                                .cornerRadius(15)
+                                .shadow(color: .black, radius: 5, x: 2, y: 2)
+                                .padding(.horizontal)
+                                .padding(.bottom,5.0)
+                                .padding(.top, 20.0)
                             }
-                       }
-                        
+                        }
                     }
+                }
             }
-            .navigationBarHidden(true)
-            .padding(.leading)
+            .navigationBarTitle("Quotes", displayMode: .inline)
         }
-      
-       
     }
 }
 
 struct QuoteListView_Previews: PreviewProvider {
     static var previews: some View {
-       let model = QuoteModel()
-        QuoteListView( quoteModel: model.qoutes[0])
-            .environmentObject(QuoteModel())
+        QuoteListView()
     }
 }

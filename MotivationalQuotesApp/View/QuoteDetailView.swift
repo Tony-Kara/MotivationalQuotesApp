@@ -2,43 +2,39 @@
 //  QuoteDetailView.swift
 //  MotivationalQuotesApp
 //
-//  Created by mac on 9/25/21.
+//  Created by Tony-eniola on 9/25/21.
 //
+
 
 import SwiftUI
 
 struct QuoteDetailView: View {
-    var quote: Quote
+    var model : Quote?
+    init(model: Quote){
+        self.model = model
+    }
     var body: some View {
-        VStack{
-            ScrollView {
-                
-                VStack(alignment: .leading, spacing: 20){
-                   
-                       Text(quote.name)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 20){
+                if let model = model {
+                    Text(model.name)
                         .padding(.bottom, 5)
                         .font(Font.custom("Avenir Heavy", size: 25))
-                         
-                    
-                    ForEach(0..<quote.quotes.count){ index in
-                        
-                        Text(quote.quotes[index])
+                    ForEach(model.quotes, id: \.self) { quotes in
+                        Text(quotes)
+                            .padding(.bottom, 5)
                     }
-                    .padding(.bottom, 5)
-                   
-                   Spacer()
-                    
                 }
-                .padding()
-                
             }
-        }
+            .padding()
+        }  
     }
 }
 
 struct QuoteDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let model = QuoteModel()
-        QuoteDetailView(quote: model.qoutes[0])
+        QuoteDetailView(model: model.qoutes[0])
     }
 }
+
